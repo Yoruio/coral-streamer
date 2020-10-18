@@ -167,6 +167,7 @@ def main():
             fps = int(1 / (curr_frame_time - prev_frame_time))
 
             ret, frame = cap.read()
+            frame = cv2.flip(frame, 0)
             if not ret:
                 break
 
@@ -194,6 +195,7 @@ def main():
                     i += 20
 
             out.write(cv2_im)
+            #print(fps)
 
             # pi dies for some reason if I dont limit the fps - fix this?
             time.sleep(0.1)
